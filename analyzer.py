@@ -101,7 +101,7 @@ class Extractor():
   def __init__(self):
        
      Extractor.__data_DICT = {}
-     Extractor.__custom_config = r'--oem 3 -- psm 6 outputbase digits'
+     Extractor.__custom_config = r'--oem 3 --psm 6 outputbase digits'
 
   def __is_number(n):
      try:
