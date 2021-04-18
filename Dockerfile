@@ -3,6 +3,16 @@ FROM python:latest
 
 RUN apt-get update \
     && apt-get install tesseract-ocr -y \
+    && apt-get install -y libleptonica-dev \
+    && apt-get install -y pkg-config \
+    && apt-get install -y libswscale-dev \
+    && apt-get install -y libtbb2 \
+    && apt-get install -y libtbb-dev \
+    && apt-get install -y libjpeg-dev \
+    && apt-get install -y libpng-dev \
+    && apt-get install -y libtiff-dev \
+    && apt-get install -y libavformat-dev \
+    && apt-get install -y libpq-dev \
     #python3.8 \
     #python-setuptools \
     #python3-pip \
@@ -18,5 +28,4 @@ RUN pip3 install -r requirements.txt
 RUN chmod +x gunicorn.sh
 #define the command to start the container
 ENTRYPOINT [ "./gunicorn.sh" ]
-
 
