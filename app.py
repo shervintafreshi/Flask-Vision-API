@@ -84,8 +84,9 @@ class Analyze(Resource):
         start_aggregation_PROTOCOL(extractor.get_resultant(), request_DATA)
         start_migration_PROTOCOL()
 
-        return make_response(jsonify(task_report_PROTOCOL(request_DATA)),200)
-           
+        #return make_response(jsonify(task_report_PROTOCOL(request_DATA)),200)
+        data = task_report_PROTOCOL(request_DATA)
+        return [bytes(data, 'utf-8')]   
             
 api.add_resource(testing, '/testing')
 api.add_resource(Analyze, '/process_images')
