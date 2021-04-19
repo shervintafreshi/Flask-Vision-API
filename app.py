@@ -65,7 +65,7 @@ class Main(Resource):
  
         return  jsonify(
             apiName='Flask Vision API',
-            apiVersion='1.0'
+            apiVersion='1.0',
             description='restful service to support android-app frontend',
             Author='Shervin Tafreshipour',
         )
