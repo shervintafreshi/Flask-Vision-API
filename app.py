@@ -59,6 +59,18 @@ class testing(Resource):
 
 # ******************************************************************** #        
 
+class Main(Resource):
+
+    def get(self):
+ 
+        return  jsonify(
+            apiName='Flask Vision API',
+            apiVersion='1.0'
+            description='restful service to support android-app frontend',
+            Author='Shervin Tafreshipour',
+        )
+
+# ******************************************************************** #
 class Analyze(Resource):
 
     @jwt_required()
@@ -88,6 +100,7 @@ class Analyze(Resource):
         return make_response(task_report_PROTOCOL(request_DATA),200)   
             
 api.add_resource(testing, '/testing')
+api.add_resource(Main, '/')
 api.add_resource(Analyze, '/process_images')
 
 if __name__ == "__main__":
