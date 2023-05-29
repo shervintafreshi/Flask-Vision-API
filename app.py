@@ -1,4 +1,5 @@
 import json
+from dotenv import load_dotenv
 from flask import Flask, request, jsonify, make_response
 from flask_restful import Api, Resource, reqparse, abort 
 from flask_jwt import JWT, jwt_required, current_identity
@@ -6,9 +7,11 @@ from manager import create_DOCUMENT_LIST_PROTOCOL, retrieve_USERS_PROTOCOL, star
 from analyzer import Extractor
 from werkzeug.security import safe_str_cmp
 
+
 app = Flask(__name__)
 api = Api(app)
 
+load_dotenv()
 parser = reqparse.RequestParser()
 extractor = Extractor()
 users = []
@@ -39,7 +42,7 @@ def identity(payload):
     return userid_table.get(user_id, None)
 
 
-app.config['JWT_SECRET_KEY'] = 'VMFqJhpkUFVUTovH0H3x210iB8Na3P1ZUusS9jOuJllmJa0EZ26GSuRds1hC'
+app.config['JWT_SECRET_KEY'] = os.environ['JWT_SECRET_KEY']
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = 1200
 app.config['JWT_REFRESH_TOKEN_EXPIRES'] = 1200 
 jwt = JWT(app, authenticate, identity)
