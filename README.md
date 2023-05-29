@@ -1,3 +1,3 @@
-# Docker-Flask-Vision-API
+# Flask-Vision-API
 
-Flask Vision API mean't to be deployed on digitalocean
+This program was designed specifically to encapsulate the usage of both locally run open-source software (**Tesseract OCR**) and a proprietary cloud-based API (**Google Cloud Vision**) for the purposes of using optical character recognition to extract key data points from financial receipts and aggregate them into relevant documents.
